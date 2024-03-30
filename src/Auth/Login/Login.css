@@ -1,0 +1,90 @@
+.loginWrapper {
+    background-image: url('/Users/junha/Desktop/Decofolio-Frontend/src/assets/image/loginBackground.svg');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer {
+    width: 600px;
+    height: 656px;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    z-index: 1;
+    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+.imageContainer img {
+    width: 200px;
+    height: 100px;
+    margin-top: 60px; 
+}
+
+.inputContainer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.inputFieldContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.inputFieldContainer.label-id label {
+    align-self: flex-start;
+    color: black;
+    width: 230px;
+}
+
+.inputFieldContainer.label-password label {
+    align-self: flex-start;
+    color: black;
+    width: 240px;
+}
+
+.loginContainer input {
+    width: 400px;
+    height: 51px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background-color: white;
+    padding-left: 20px;
+    color: black;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.loginContainer input::placeholder {
+    color: #8E8E8E;
+    opacity: 1;
+    font-size: 16px;
+}
+
+.loginContainer button {
+    width: 420px;
+    height: 51px;
+    background-color: #636363;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 70px;
+}
