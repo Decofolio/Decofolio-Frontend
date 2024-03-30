@@ -91,6 +91,7 @@ const InputFieldContainer = styled.div`
     align-items: center;
     width: 100%;
     margin-top: 30px;
+    outline: none;
 
     &.label-id label, &.label-password label {
         align-self: flex-start;
@@ -113,6 +114,7 @@ const StyledInput = styled.input`
     color: black;
     font-size: 16px;
     margin-top: 8px;
+    outline: none;
 
     &::placeholder {
         color: #8E8E8E;
