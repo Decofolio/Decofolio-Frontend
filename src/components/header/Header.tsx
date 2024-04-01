@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import LogoImg from "./assets/headerLogo.svg"
 
 const Header = () => {
   return(
     <Container>
-      <Logo src={LogoImg} alt="" />
+      <Logo src="src/assets/image/headerLogo.svg" alt="" />
       <Contents>
         <Item>템플릿</Item>
         <Item>작업</Item>
@@ -15,6 +14,7 @@ const Header = () => {
 };
 
 const Container = styled.div`
+  background-color: #fff;
   width: 100vw;
   min-width: 960px;
   height: 61px;
