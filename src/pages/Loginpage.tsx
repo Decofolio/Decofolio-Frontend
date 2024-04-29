@@ -1,52 +1,52 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { decoLogin,loginBackground } from '../assets/image';
+import { decoLogin, loginBackground } from '../assets/image';
 
 interface iUserForm {
-  name: string,
-  password: string
+    name: string,
+    password: string
 }
 
 const Login: React.FC = () => {
-  const [userForm, setUserForm] = useState<iUserForm>({name: '', password: ''});
+    const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
 
-  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserForm((prev) => ({
-      ...prev,
-     name: event.target.value
-    }))
-  };
+    const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUserForm((prev) => ({
+            ...prev,
+            name: event.target.value
+        }))
+    };
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUserForm((prev) => ({
-      ...prev,
-     password: event.target.value
-    }))
-  };
+    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setUserForm((prev) => ({
+            ...prev,
+            password: event.target.value
+        }))
+    };
 
-  const handleLoginClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log("로그인 시도:", userForm.name, userForm.password);
-  };
+    const handleLoginClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        console.log("로그인 시도:", userForm.name, userForm.password);
+    };
 
-  return (
-    <LoginWrapper>
-      <LoginContainer>
-        <ImageContainer>
-          <img src={decoLogin} alt="login" />
-        </ImageContainer>
-        <InputFieldContainer className="label-id">
-          <label htmlFor="username">아이디</label>
-          <StyledInput type="text" id="username" placeholder="아이디를 입력해주세요." value={userForm.name} onChange={handleUsernameChange} />
-        </InputFieldContainer>
-        <InputFieldContainer className="label-password">
-          <label htmlFor="password">비밀번호</label>
-          <StyledInput type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
-        </InputFieldContainer>
-        <StyledButton onClick={handleLoginClick}>Login</StyledButton>
-      </LoginContainer>
-    </LoginWrapper>
-  );
+    return (
+        <LoginWrapper>
+            <LoginContainer>
+                <ImageContainer>
+                    <img src={decoLogin} alt="login" />
+                </ImageContainer>
+                <InputFieldContainer className="label-id">
+                    <label htmlFor="username">아이디</label>
+                    <StyledInput type="text" id="username" placeholder="아이디를 입력해주세요." value={userForm.name} onChange={handleUsernameChange} />
+                </InputFieldContainer>
+                <InputFieldContainer className="label-password">
+                    <label htmlFor="password">비밀번호</label>
+                    <StyledInput type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
+                </InputFieldContainer>
+                <StyledButton onClick={handleLoginClick}>Login</StyledButton>
+            </LoginContainer>
+        </LoginWrapper>
+    );
 };
 
 const LoginWrapper = styled.div`
