@@ -38,13 +38,10 @@ const Contents = styled.div`
 `;
 
 const Item = styled.p`
-  font-family: "Pretendard";
-  font-size: 18px;
-  font-weight: 400;
+  font: ${({ theme }) => theme.fonts.Medium24};
   position: relative;
   cursor: pointer;
   &:hover {
-    font-weight: 500;
     color: #364F6B;
   }
 `;
