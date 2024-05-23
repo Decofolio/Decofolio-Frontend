@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { decoLogin, loginBackground } from '../assets/image';
+import api from './api';
 
 interface iUserForm {
   name: string;
@@ -58,14 +58,10 @@ const Signup: React.FC = () => {
       setErrorMessage('');
 
       try {
-        const response = await axios.post(`15.165.66.3:8080/user`, {
+        const response = await api.post('/user', {
           account_id: userForm.name,
           password: userForm.password,
           email: userForm.email
-        }, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
         });
 
         if (response.status === 201 || response.status === 200) {

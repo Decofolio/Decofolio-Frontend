@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin,loginBackground } from '../assets/image';
 import axios from "axios";
+import api from './api';
 
 interface iUserForm {
   nowPassword: string,
@@ -51,7 +52,7 @@ const PasswordChange: React.FC = () => {
       }
 
       try {
-        const response = await axios.patch(`15.165.66.3:8080/auth/${user_id}`, 
+        const response = await api.patch(`/auth/${user_id}`, 
           {
             password: userForm.password
           },

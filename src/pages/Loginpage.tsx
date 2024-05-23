@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
+import api from './api';
 
 interface iUserForm {
   name: string,
@@ -34,16 +35,10 @@ const Login: React.FC = () => {
     };
 
     try {
-      const response = await fetch(`15.165.66.3:8080/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestData)
-      });
+      const response = await api.post(`/auth/login`, requestData);
 
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status === 200) {
+        const data = response.data;
         console.log("로그인 성공:", data);
       } else {
         console.error("로그인 실패:", response.status);
