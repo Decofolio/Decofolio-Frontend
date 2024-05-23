@@ -25,6 +25,7 @@ const fonts = {
   Regular24: `400 1.5rem 'Pretendard'`,
   Regular20: `400 1.3rem 'Pretendard'`,
   Regular16: `400 1rem 'Pretendard'`,
+  Regular14: `400 0.875rem 'Pretendard'`,
   Regular12: `400 0.75rem 'Pretendard'`,
   Light32: `300 2rem 'Pretendard'`,
   Light28: `300 1.75rem 'Pretendard'`,

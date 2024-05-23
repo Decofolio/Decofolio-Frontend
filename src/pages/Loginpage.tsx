@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import api from './api';
 
 interface iUserForm {
-  name: string,
-  password: string
+    name: string,
+    password: string
 }
 
 const Login: React.FC = () => {
