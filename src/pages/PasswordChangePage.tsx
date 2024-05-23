@@ -51,7 +51,7 @@ const PasswordChange: React.FC = () => {
       }
 
       try {
-        const response = await axios.patch(`15.165.66.3:8080/${user_id}`, 
+        const response = await axios.patch(`15.165.66.3:8080/auth/${user_id}`, 
           {
             password: userForm.password
           },

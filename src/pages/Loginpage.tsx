@@ -34,7 +34,7 @@ const Login: React.FC = () => {
     };
 
     try {
-      const response = await fetch(`15.165.66.3:8080/login`, {
+      const response = await fetch(`15.165.66.3:8080/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

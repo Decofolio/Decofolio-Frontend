@@ -58,7 +58,7 @@ const Signup: React.FC = () => {
       setErrorMessage('');
 
       try {
-        const response = await axios.post(`15.165.66.3:8080/signup`, {
+        const response = await axios.post(`15.165.66.3:8080/user`, {
           account_id: userForm.name,
           password: userForm.password,
           email: userForm.email
