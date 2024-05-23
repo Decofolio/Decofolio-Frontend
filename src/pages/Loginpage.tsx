@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
+import { useNavigate } from 'react-router-dom';
 
 interface iUserForm {
     name: string,
@@ -8,6 +9,7 @@ interface iUserForm {
 }
 
 const Login: React.FC = () => {
+    const navigate = useNavigate();
     const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
 
     const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +45,7 @@ const Login: React.FC = () => {
                     <label htmlFor="password">비밀번호</label>
                     <StyledInput type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
                 </InputFieldContainer>
-                <StyledButton onClick={handleLoginClick}>Login</StyledButton>
+                <StyledButton onClick={()=> {navigate('/main')}}>Login</StyledButton>
             </LoginContainer>
         </LoginWrapper>
     );
