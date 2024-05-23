@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import api from './api';
 
 interface iUserForm {
     name: string,
@@ -9,49 +11,68 @@ interface iUserForm {
 }
 
 const Login: React.FC = () => {
-    const navigate = useNavigate();
-    const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
+  const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
 
-    const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserForm((prev) => ({
-            ...prev,
-            name: event.target.value
-        }))
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserForm((prev) => ({
+      ...prev,
+      name: event.target.value
+    }))
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserForm((prev) => ({
+      ...prev,
+      password: event.target.value
+    }))
+  };
+
+  const handleLoginClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log("로그인 시도:", userForm.name, userForm.password);
+
+    const requestData = {
+      account_id: userForm.name,
+      password: userForm.password
     };
 
-    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserForm((prev) => ({
-            ...prev,
-            password: event.target.value
-        }))
-    };
+    try {
+      const response = await api.post(`/auth/login`, requestData);
 
-    const handleLoginClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        console.log("로그인 시도:", userForm.name, userForm.password);
-    };
+      if (response.status === 200) {
+        const data = response.data;
+        console.log("로그인 성공:", data);
+      } else {
+        console.error("로그인 실패:", response.status);
+      }
+    } catch (error) {
+      console.error("로그인 중 에러 발생:", error);
+    }
+  };
 
-    return (
-        <LoginWrapper>
-            <LoginContainer>
-                <ImageContainer>
-                    <img src={decoLogin} alt="login" />
-                </ImageContainer>
-                <InputFieldContainer className="label-id">
-                    <label htmlFor="username">아이디</label>
-                    <StyledInput type="text" id="username" placeholder="아이디를 입력해주세요." value={userForm.name} onChange={handleUsernameChange} />
-                </InputFieldContainer>
-                <InputFieldContainer className="label-password">
-                    <label htmlFor="password">비밀번호</label>
-                    <StyledInput type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
-                </InputFieldContainer>
-                <StyledButton onClick={()=> {navigate('/main')}}>Login</StyledButton>
-            </LoginContainer>
-        </LoginWrapper>
-    );
+  return (
+    <LoginWrapper2>
+      <LoginContainer2>
+        <ImageContainer2>
+          <img src={decoLogin} alt="login" />
+        </ImageContainer2>
+        <InputFieldContainer2 className="label-id">
+          <label htmlFor="username">아이디</label>
+          <StyledInput2 type="text" id="username" placeholder="아이디를 입력해주세요." value={userForm.name} onChange={handleUsernameChange} />
+        </InputFieldContainer2>
+        <InputFieldContainer2 className="label-password">
+          <label htmlFor="password">비밀번호</label>
+          <div>
+            <StyledInput2 type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
+          </div>
+        </InputFieldContainer2>
+        <StyledButton2 onClick={handleLoginClick}>Login</StyledButton2>
+      </LoginContainer2>
+    </LoginWrapper2>
+  );
 };
 
-const LoginWrapper = styled.div`
+const LoginWrapper2 = styled.div`
     background-image: url(${loginBackground});
     background-size: cover;
     background-position: center;
@@ -65,7 +86,7 @@ const LoginWrapper = styled.div`
     align-items: center;
 `;
 
-const LoginContainer = styled.div`
+const LoginContainer2 = styled.div`
     width: 600px;
     height: 656px;
     background-color: #FFFFFF;
@@ -78,7 +99,7 @@ const LoginContainer = styled.div`
     box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer2 = styled.div`
     img {
         width: 200px;
         height: 100px;
@@ -86,7 +107,7 @@ const ImageContainer = styled.div`
     }
 `;
 
-const InputFieldContainer = styled.div`
+const InputFieldContainer2 = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,7 +115,7 @@ const InputFieldContainer = styled.div`
     margin-top: 30px;
     outline: none;
 
-    &.label-id label, &.label-password label {
+    &.label-id label, &.label-password, label {
         align-self: flex-start;
         color: black;
         width: 230px;
@@ -105,7 +126,7 @@ const InputFieldContainer = styled.div`
     }
 `;
 
-const StyledInput = styled.input`
+const StyledInput2 = styled.input`
     width: 400px;
     height: 51px;
     border-radius: 8px;
@@ -124,7 +145,7 @@ const StyledInput = styled.input`
     }
 `;
 
-const StyledButton = styled.button`
+const StyledButton2 = styled.button`
     width: 420px;
     height: 51px;
     background-color: #636363;
