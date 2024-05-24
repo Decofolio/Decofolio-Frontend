@@ -145,7 +145,7 @@ const SignupWrapper1 = styled.div`
 
 const SignupContainer1 = styled.div`
   width: 600px;
-  height: 800px;
+  height: 656px;
   background-color: #ffffff;
   border-radius: 50px;
   display: flex;
