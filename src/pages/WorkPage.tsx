@@ -1,21 +1,18 @@
-import styled from "styled-components"
-import Header from "../components/header/Header";
-import Template from "../components/template/Template";
+import styled from "styled-components";
 import { noneTemplate } from "../assets/image";
+import Header from "../components/header/Header"
+import WorkTemplate from "../components/template/WorkTemplate";
 
-const MainPage = () => {
+const WorkPage = () => {
     return (
         <>
             <Header />
             <MainContainer>
                 <Title>템플릿 <p>원하는 디자인을 선택</p></Title>
                 <TemplateWrapper>
-                    <Template />
-                    <Template />
-                    <Template />
-                    <Template />
-                    <Template />
-                    <Template />
+                    <WorkTemplate title="포트폴리오1"/>
+                    <WorkTemplate title="포트폴리오2"/>
+                    <WorkTemplate title="포트폴리오3"/>
                 </TemplateWrapper>
                 <NoneTemplateWrapper>
                     <NonTemplateWrapper url={noneTemplate}>
@@ -69,12 +66,6 @@ const NonTemplateWrapper = styled.div<{ url: string }>`
     border-radius: 20px 20px 0 0;
 `
 
-// const NoneTemplate = styled.img`
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-// `
-
 const Title = styled.div`
     margin-top: 8vh;
     font: ${({ theme }) => theme.fonts.Semibold28};
@@ -86,4 +77,4 @@ const Title = styled.div`
     }
 `;
 
-export default MainPage
+export default WorkPage;
