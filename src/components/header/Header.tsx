@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Header = () => {
-  return(
+  return (
     <Container>
       <Logo src="src/assets/image/headerLogo.svg" alt="" />
       <Contents>
@@ -20,12 +20,13 @@ const Container = styled.div`
   height: 61px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 180px;
+  justify-content: space-around;
+  gap: 40vw;
+  padding: 13px 0; 
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
-const Logo = styled.img`
+const Logo = styled.img`  
   cursor: pointer;
   width: 200px;
 `;
@@ -37,13 +38,10 @@ const Contents = styled.div`
 `;
 
 const Item = styled.p`
-  font-family: "Pretendard";
-  font-size: 18px;
-  font-weight: 400;
+  font: ${({ theme }) => theme.fonts.Medium24};
   position: relative;
   cursor: pointer;
   &:hover {
-    font-weight: 500;
     color: #364F6B;
   }
 `;
