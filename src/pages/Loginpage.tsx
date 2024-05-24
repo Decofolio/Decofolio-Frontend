@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import api from './api';
 
 interface iUserForm {
@@ -10,7 +8,7 @@ interface iUserForm {
     password: string
 }
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,4 +154,4 @@ const StyledButton2 = styled.button`
     margin-top: 70px;
 `;
 
-export default Login;
+export default LoginPage;

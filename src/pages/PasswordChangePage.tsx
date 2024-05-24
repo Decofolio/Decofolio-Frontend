@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin,loginBackground } from '../assets/image';
-import axios from "axios";
 import api from './api';
 
 interface iUserForm {
