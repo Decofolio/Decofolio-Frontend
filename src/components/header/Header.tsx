@@ -1,13 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleMemberWithdrawal = () => {
+    alert('회원탈퇴');
+    navigate('/login');
+  };
   return (
     <Container>
-      <Logo src="src/assets/image/headerLogo.svg" alt="" />
+      <Logo src="src/assets/image/headerLogo.svg" alt="" onClick={() => {navigate('/main')}} />
       <Contents>
-        <Item>템플릿</Item>
-        <Item>작업</Item>
-        <Item>로그아웃</Item>
+        <Item onClick={() => {navigate('/work')}}>작업</Item>
+        <Item onClick={() => {navigate('/login')}}>로그아웃</Item>
+        <Item onClick={handleMemberWithdrawal}>회원탈퇴</Item>
       </Contents>
     </Container>
   );

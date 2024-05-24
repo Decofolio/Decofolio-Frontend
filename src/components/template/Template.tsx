@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { arrow, template1 } from "../assets/image";
+import { arrow, template1 } from "../../assets/image";
 
 const Template = () => {
     return (
