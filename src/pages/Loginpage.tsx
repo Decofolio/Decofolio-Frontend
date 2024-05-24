@@ -60,9 +60,7 @@ const LoginPage: React.FC = () => {
         </InputFieldContainer2>
         <InputFieldContainer2 className="label-password">
           <label htmlFor="password">비밀번호</label>
-          <div>
-            <StyledInput2 type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
-          </div>
+          <StyledInput2 type="password" id="password" placeholder="비밀번호를 입력해주세요." value={userForm.password} onChange={handlePasswordChange} />
         </InputFieldContainer2>
         <StyledButton2 onClick={handleLoginClick}>Login</StyledButton2>
       </LoginContainer2>
@@ -108,7 +106,6 @@ const ImageContainer2 = styled.div`
 const InputFieldContainer2 = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     margin-top: 30px;
     outline: none;
@@ -134,6 +131,7 @@ const StyledInput2 = styled.input`
     color: black;
     font-size: 16px;
     margin-top: 8px;
+    margin-left: 90px;
     outline: none;
 
     &::placeholder {
