@@ -8,7 +8,7 @@ const WorkPage = () => {
         <>
             <Header />
             <MainContainer>
-                <Title>템플릿 <p>원하는 디자인을 선택</p></Title>
+                <Title>작업 <p>내가 작업한 템플릿</p></Title>
                 <TemplateWrapper>
                     <WorkTemplate title="포트폴리오1"/>
                     <WorkTemplate title="포트폴리오2"/>
@@ -36,13 +36,23 @@ const MainContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    min-width: 720px;
 `;
 
 const TemplateWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 60px;
+
+    @media (max-width: 1315px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    @media (max-width: 840px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 `
 
 const NoneTemplateWrapper = styled(TemplateWrapper)`
