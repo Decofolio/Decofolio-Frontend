@@ -10,20 +10,21 @@ interface iUserForm {
 }
 
 const PasswordChange: React.FC = () => {
+
   const [userForm, setUserForm] = useState<iUserForm>({nowPassword: '', password: '', againPassword: ''});
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserForm((prev) => ({
       ...prev,
-     name: event.target.value
+    name: event.target.value
     }))
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserForm((prev) => ({
       ...prev,
-     password: event.target.value
+    password: event.target.value
     }))
     setErrorMessage('');
   };
@@ -51,7 +52,7 @@ const PasswordChange: React.FC = () => {
       }
 
       try {
-        const response = await api.patch(`/auth/${user_id}`, 
+        const response = await api.patch(`/auth/${user_id}`,
           {
             password: userForm.password
           },
@@ -117,24 +118,25 @@ const SignupWrapper1 = styled.div`
 `;
 
 const SignupContainer1 = styled.div`
-    width: 600px;
-    height: 656px;
-    background-color: #FFFFFF;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    z-index: 1;
-    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+  width: 35vw;
+  height: 45.5vw;
+  background-color: #FFFFFF;
+  border-radius: 2.92vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2.92vw;
+  border-radius: 2.92vw;
+  z-index: 1;
+  box-shadow: 0 0.11vw 0.17vw 0.11vw rgba(0, 0, 0, 0.2);
 `;
 
 const ImageContainer1 = styled.div`
-    img {
-        width: 200px;
-        height: 100px;
-        margin-top: 60px; 
-    }
+  img {
+    width: 11.6vw;
+    height: 5.8vw;
+    margin-top: 3.5vw; 
+  }
 `;
 
 const InputFieldContainer1 = styled.div`
@@ -142,61 +144,65 @@ const InputFieldContainer1 = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 1.75vw;
     outline: none;
 
     &.label-id label, &.label-password label {
         align-self: flex-start;
         color: black;
-        width: 230px;
+        width: 13.4vw;
+        margin-left: 1.05vw;
+        font-size: 0.93vw;
     }
 
     &.label-password-again label {
         align-self: flex-start;
-        padding-left: 32px;
+        padding-left: 1.87vw; 
+        width: 13.49vw;
+        margin-left: 1.05vw;
         color: black;
-        width: 230px;
+        font-size: 0.93vw;
     }
 
     &.label-password label {
-        width: 240px;
+        width: 14vw;
     }
 `;
 
 const StyledInput1 = styled.input`
-    width: 400px;
-    height: 51px;
-    border-radius: 8px;
-    border: 1px solid #cccccc;
-    background-color: white;
-    padding-left: 20px;
-    color: black;
-    font-size: 16px;
-    margin-top: 8px;
-    outline: none;
-
-    &::placeholder {
-        color: #8E8E8E;
-        opacity: 1;
-        font-size: 16px;
-    }
+  width: 23.3vw;
+  height: 2.98vw;
+  border-radius: 0.46vw;
+  border: 1px solid #cccccc;
+  background-color: white;
+  padding-left: 1.16vw;
+  color: black;
+  font-size: 0.93vw;
+  margin-top: 0.46vw;
+  outline: none;
+  &::placeholder {
+    color: #8E8E8E;
+    opacity: 1;
+    font-size: 0.93vw;
+  }
 `;
 
 const StyledButton1 = styled.button`
-    width: 420px;
-    height: 51px;
-    background-color: #636363;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 70px;
+  width: 24.56140vw;
+  height: 2.98246vw;
+  font-size: 1.05vw;
+  background-color: #636363;
+  color: white;
+  border: none;
+  border-radius: 0.29vw;
+  cursor: pointer;
+  margin-top: 4.09vw;
 `;
 
 const ErrorMessage1 = styled.div`
     color: red;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 0.81vw;
+    margin-bottom: 0.58vw;
 `;
 
 export default PasswordChange;
