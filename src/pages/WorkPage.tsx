@@ -3,6 +3,8 @@ import { noneTemplate } from "../assets/image";
 import Header from "../components/header/Header"
 import WorkTemplate from "../components/template/WorkTemplate";
 
+
+
 const WorkPage = () => {
     return (
         <>

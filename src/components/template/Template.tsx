@@ -1,14 +1,19 @@
 import styled from "styled-components"
 import { arrow, template1 } from "../../assets/image";
+import { TemplateListResponse } from "../../apis/feed/type";
 
-const Template = () => {
+interface PropsType {
+    data?: TemplateListResponse
+}
+
+const Template = ({data}: PropsType) => {
     return (
         <Container>
             <Wrapper>
                 <BackgroundImg src={template1} />
                 <TagWrapper>
-                    <Tag># 다이나믹</Tag>
-                    <Tag># 다이나믹</Tag>
+                    <Tag>{data?.title}</Tag>
+                    <Tag>{data?.subtitle}</Tag>
                     <Tag># 다이나믹</Tag>
                 </TagWrapper>
                 <TemplateDetail>자세히 보기 <img src={arrow} /></TemplateDetail>

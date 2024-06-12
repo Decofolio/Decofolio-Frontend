@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { decoLogin,loginBackground } from '../assets/image';
-import api from './api';
+import { decoLogin, loginBackground } from '../assets/image';
+import axios from "axios";
+import api from '../apis';
 
 interface iUserForm {
   nowPassword: string,
@@ -10,21 +11,20 @@ interface iUserForm {
 }
 
 const PasswordChange: React.FC = () => {
-
   const [userForm, setUserForm] = useState<iUserForm>({nowPassword: '', password: '', againPassword: ''});
   const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserForm((prev) => ({
       ...prev,
-    name: event.target.value
+     name: event.target.value
     }))
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserForm((prev) => ({
       ...prev,
-    password: event.target.value
+     password: event.target.value
     }))
     setErrorMessage('');
   };
