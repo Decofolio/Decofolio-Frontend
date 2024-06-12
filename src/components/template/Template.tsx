@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { arrow, template1 } from "../../assets/image";
-import DefaultModal from "../common/modal";
+import DefaultModal from "../common/modal/modal";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
