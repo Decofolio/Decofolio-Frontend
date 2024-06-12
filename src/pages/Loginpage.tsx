@@ -9,6 +9,7 @@ interface iUserForm {
 }
 
 const LoginPage: React.FC = () => {
+
   const [userForm, setUserForm] = useState<iUserForm>({ name: '', password: '' });
 
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,23 +84,23 @@ const LoginWrapper2 = styled.div`
 `;
 
 const LoginContainer2 = styled.div`
-    width: 600px;
-    height: 656px;
+    width: 35vw;
+    height: 38.3vw;
     background-color: #FFFFFF;
-    border-radius: 50px;
+    border-radius: 2.92vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 2.92vw;
     z-index: 1;
-    box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.11vw 0.17vw 0.11vw rgba(0, 0, 0, 0.2);
 `;
 
 const ImageContainer2 = styled.div`
     img {
-        width: 200px;
-        height: 100px;
-        margin-top: 60px; 
+        width: 11.6vw;
+        height: 5.8vw;
+        margin-top: 3.5vw;
     }
 `;
 
@@ -107,49 +108,53 @@ const InputFieldContainer2 = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 1.75vw;
     outline: none;
 
     &.label-id label, &.label-password, label {
         align-self: flex-start;
         color: black;
-        width: 230px;
+        width: 13.4vw;
+        font-size: 0.93vw;
     }
 
     &.label-password label {
-        width: 240px;
+        width: 14vw;
+        font-size: 0.93vw;
     }
 `;
 
 const StyledInput2 = styled.input`
-    width: 400px;
-    height: 51px;
-    border-radius: 8px;
+    width: 23.3vw;
+    height: 2.9vw;
+    border-radius: 0.46vw;
     border: 1px solid #cccccc;
     background-color: white;
-    padding-left: 20px;
+    padding-left: 1.16vw;
     color: black;
-    font-size: 16px;
-    margin-top: 8px;
-    margin-left: 90px;
+    font-size: 0.9vw;
+    margin-top: 0.4vw;
+    margin-left: 5.2vw;
     outline: none;
 
     &::placeholder {
         color: #8E8E8E;
         opacity: 1;
-        font-size: 16px;
+        font-size: 0.93vw;
     }
 `;
 
 const StyledButton2 = styled.button`
-    width: 420px;
-    height: 51px;
+    width: 24.5vw;
+    height: 2.98vw;
+    font-family: Pretendard;
+    font-size: 1.05vw;
     background-color: #636363;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 0.29vw;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 4.09vw;
 `;
 
 export default LoginPage;
