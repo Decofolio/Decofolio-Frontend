@@ -10,6 +10,58 @@ interface PropsType {
 }
 
 const Template = ({data}: PropsType) => {
+import DefaultModal from "../common/modal/modal";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+const Template = () => {
+    const navigate = useNavigate();
+
+    const [isCheckModal, setIsCheckModal] = useState<boolean>(false);
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [likeCount, setLikeCount] = useState<number>(0);
+    const [comments, setComments] = useState<{author: string, text: string}[]>([]);
+    const [newComment, setNewComment] = useState<string>("");
+    const [author] = useState<string>("홍길동");
+
+    function openCheckModal() {
+        setIsCheckModal(true);
+    }
+
+    function closeCheckModal() {
+        setIsCheckModal(false);
+    }
+
+    function handleCancle() {
+        closeCheckModal();
+    }
+
+    function toggleLike() {
+        if (isLiked) {
+            setIsLiked(false);
+            setLikeCount(likeCount - 1);
+        } else {
+            setIsLiked(true);
+            setLikeCount(likeCount + 1);
+        }
+    }
+
+    function handleCommentChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setNewComment(event.target.value);
+    }
+
+    function addComment() {
+        if (newComment.trim() !== "") {
+            setComments([...comments, {author, text: newComment}]);
+            setNewComment("");
+        }
+    }
+
+    function deleteComment(index: number) {
+        const newComments = comments.filter((_, i) => i !== index);
+        setComments(newComments);
+    }
+
     return (
         <Container>
             <Wrapper>
@@ -17,9 +69,69 @@ const Template = ({data}: PropsType) => {
                 <TagWrapper>
                     <Tag>{data?.title}</Tag>
                     <Tag>{data?.subtitle}</Tag>
-                    <Tag># 다이나믹</Tag>
                 </TagWrapper>
-                <TemplateDetail>자세히 보기 <img src={arrow} /></TemplateDetail>
+                <TemplateDetail onClick={openCheckModal}>자세히 보기 <img src={arrow} /></TemplateDetail>
+                {isCheckModal && (
+                <DefaultModal
+                    open={isCheckModal}
+                    close={closeCheckModal}
+                    height={34.5}
+                >
+                    <Cancle onClick={handleCancle} src="src/assets/image/Close.svg"/>
+                    <div>
+                    <View src="src/assets/image/ModalView.svg" />
+                    <ExplanSection>
+                        <div>
+                            <ModalTitle>다이나믹 심플 포트폴리오</ModalTitle>
+                            <Like
+                                onClick={toggleLike}
+                                src={isLiked ? "src/assets/image/LikeFilled.svg" : "src/assets/image/Like.svg"}
+                            />
+                        </div>
+                            <ModalSub>자체 제착 템플릿</ModalSub>
+                        <div>
+                            <Tag># 디아니믹</Tag>
+                            <Tag># 심플</Tag>
+                            <Tag># 고딕</Tag>
+                        </div>
+                        <Footer>
+                        <ModalButton onClick={() => {
+                            navigate("/modernTemplate");
+                        }}>이 템플릿 편집하기</ModalButton>
+                        <Github onClick={() => {
+                            window.open("https://github.com/Decofolio/Decofolio-Frontend")
+                        }} src="src/assets/image/MainGithub.svg" alt="" />
+                        </Footer>
+                    </ExplanSection>
+                    </div>
+                    <CommentSection>
+                    <CommentInput>
+                        <Input
+                            placeholder="내용을 입력해주세요"
+                            value={newComment}
+                            onChange={handleCommentChange}
+                            onKeyPress={(event) => {
+                                if (event.key === "Enter") {
+                                    addComment();
+                                }
+                            }}
+                        />
+                        <CommentButton onClick={addComment}>댓글</CommentButton>
+                    </CommentInput>
+                    <CommentsList>
+                        {comments.map((comment, index) => (
+                            <Comment key={index}>
+                                <CommentText>
+                                    <CommentAuthor>{comment.author}</CommentAuthor>
+                                    <CommentContent>{comment.text}</CommentContent>
+                                </CommentText>
+                                <DeleteButton onClick={() => deleteComment(index)}>삭제</DeleteButton>
+                            </Comment>
+                        ))}
+                    </CommentsList>
+                    </CommentSection>
+                </DefaultModal>
+                )}
             </Wrapper>
         </Container>
     )
@@ -36,6 +148,9 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
+    div {
+        display: flex;
+    }
 `;
 
 const BackgroundImg = styled.img`
@@ -51,7 +166,7 @@ const TagWrapper = styled.div`
     padding-left: 20px;
 `
 
-const Tag = styled.div`
+const Tag1 = styled.div`
     display: flex;
     justify-content: center;    
     align-items: center;
