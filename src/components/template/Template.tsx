@@ -1,5 +1,15 @@
 import styled from "styled-components"
 import { arrow, template1 } from "../../assets/image";
+import DefaultModal from "../common/modal";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { TemplateListResponse } from "../../apis/feed/type";
+
+interface PropsType {
+    data?: TemplateListResponse
+}
+
+const Template = ({data}: PropsType) => {
 import DefaultModal from "../common/modal/modal";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -57,9 +67,8 @@ const Template = () => {
             <Wrapper>
                 <BackgroundImg src={template1} />
                 <TagWrapper>
-                    <Tag1># 다이나믹</Tag1>
-                    <Tag1># 다이나믹</Tag1>
-                    <Tag1># 다이나믹</Tag1>
+                    <Tag>{data?.title}</Tag>
+                    <Tag>{data?.subtitle}</Tag>
                 </TagWrapper>
                 <TemplateDetail onClick={openCheckModal}>자세히 보기 <img src={arrow} /></TemplateDetail>
                 {isCheckModal && (
@@ -330,8 +339,7 @@ const Input = styled.input`
     outline: none;
     margin-top: 6.31vw;
     padding: 0 0 0 1.16vw;
-    items-align: center;
-}
+    align-items: center;
 `;
 
 const CommentButton = styled.button`
@@ -350,6 +358,6 @@ const CommentButton = styled.button`
     &:hover {
         background-color: #364F6B;
     }
-}`;
+`;
 
 export default Template;

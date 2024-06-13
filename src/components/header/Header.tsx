@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <Container>
       <Logo src="src/assets/image/headerLogo.svg" alt="" onClick={() => {navigate('/main')}} />
-      <Contents>
+      <Contents> 
         <Item onClick={() => {navigate('/work')}}>작업</Item>
         <Item onClick={() => {navigate('/login')}}>로그아웃</Item>
         <Item onClick={handleMemberWithdrawal}>회원탈퇴</Item>

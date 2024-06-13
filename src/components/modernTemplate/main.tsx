@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 const Main = () => {
-  return(
+  return (
     <Container>
       <Content>
         <TitleSection>
           <MainImg src="src/assets/image/modern/mainImg.svg" alt="" />
           <Textarea>
-            <Sub type="text" alt="한 줄 소개" placeholder="한 줄 소개를 입력해주세요"/>
+            <Sub type="text" alt="한 줄 소개" placeholder="한 줄 소개를 입력해주세요" />
             <BlodUnderLine />
-            <Title type="text" alt="제목" placeholder="제목 입력"/>
+            <Title type="text" alt="제목" placeholder="제목 입력" />
             <Line />
-            <Explan type="text" alt="설명" placeholder="설명을 입력해주세요"/>
+            <Explan type="text" alt="설명" placeholder="설명을 입력해주세요" />
           </Textarea>
         </TitleSection>
       </Content>

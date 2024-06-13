@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { decoLogin, loginBackground } from '../assets/image';
-import api from './api';
+import api from '../apis';
 
 interface iUserForm {
   name: string;
